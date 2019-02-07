@@ -19,19 +19,18 @@
     Je ne dois pas m'afficher
   </h1>
 
-  <div *ngFor="let article of articles| slice:0:10">  
-    <ion-card>
-      <ion-card-header color="primary">
-        <h3>{{article.title}}</h3>
-      </ion-card-header>
-      <ion-card-content>
-        <p>{{article.body}}</p>
-      </ion-card-content>
-      <ion-button>
-        <ion-icon name="save"></ion-icon>
-      </ion-button>
-    </ion-card>
-  </div>
+  <ion-button expand="full" [routerLink]="['/page1', 2]" routerDirection="forward">Push</ion-button>
+  <ion-card *ngFor="let article of articles| slice:0:10" (click)="goToItemDetail(article.id)">
+    <ion-card-header color="primary">
+      <h3>{{article.title}}</h3>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{article.body}}</p>
+    </ion-card-content>
+    <ion-button>
+      <ion-icon name="save"></ion-icon>
+    </ion-button>
+  </ion-card>
 
 
 </ion-content>

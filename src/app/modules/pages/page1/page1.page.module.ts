@@ -3,11 +3,12 @@ import {RouterModule} from "@angular/router";
 import {Page1Page} from "./page1.page";
 import {CommonModule} from "@angular/common";
 import {IonicModule} from "@ionic/angular";
+import { ModalPageModule } from "../modal/modal.module";
 
 @NgModule({
   imports: [
     CommonModule,
-    IonicModule,
+    IonicModule, 
     RouterModule.forChild([
       {
         path: '',

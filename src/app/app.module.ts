@@ -13,6 +13,7 @@ import {RouteReuseStrategy} from "@angular/router";
 import localeFr from '@angular/common/locales/fr';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import { ModalPageModule } from "./modules/pages/modal/modal.module";
 
 registerLocaleData(localeFr);
 moment.locale('fr');
@@ -34,7 +35,8 @@ moment.locale('fr');
       name: 'ionic-storage',
       driverOrder: ['indexeddb', 'sqlite', 'websql']
     }),
-    ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.PRODUCTION})
+    ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.PRODUCTION}),
+    ModalPageModule
   ],
   providers: [
     {provide: APP_BASE_HREF, useValue: '/'},

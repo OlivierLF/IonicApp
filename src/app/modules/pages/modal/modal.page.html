@@ -1,0 +1,19 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/page1 "></ion-back-button>
+      </ion-buttons>
+      <ion-title>Detail Item</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content padding>
+    My Id is: {{passedId}}
+  </ion-content>
+  <ion-footer>
+      <ion-toolbar color="primary">
+          <ion-button expannd="full" fill="clear" color="light" (click)="closeModal()">
+              Close
+          </ion-button>
+      </ion-toolbar>
+  </ion-footer>
+  
