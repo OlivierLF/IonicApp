@@ -4,6 +4,14 @@ import { ModalController } from "@ionic/angular";
 import { ModalPage } from "../modal/modal.page";
 import { ActivatedRoute } from "@angular/router";
 
+interface Article {
+  userId: number;
+  id: number;
+  title: String;
+  body: String;
+  persiste: boolean;
+}
+
 @Component({
   selector: 'page1',
   templateUrl: './page1.page.html',
@@ -14,39 +22,49 @@ import { ActivatedRoute } from "@angular/router";
 export class Page1Page implements OnInit {
 
   public articles: Array<any>;
+  public articlesSaved: Array<Article>;
 
   public toShow: boolean;
-  passeId = null;
 
   constructor(public page1Service: Page1Service, private modalController:ModalController, private activatedRoute: ActivatedRoute) {
     this.toShow = true;
   }
 
   ngOnInit() {
-    //console.log("INIT PAGE1");
-
+    this.articlesSaved = [];
     this.page1Service.getArticles().subscribe(
       (data: Array<any>) => {
         this.articles = data;
-
-        this.page1Service.persistArticles(data).then(
-          ok => {
-            //console.log("Les articles ont bien été stockés");
-          }
-        );
       }
     );
   }
 
-  async goToItemDetail(id: String) {
+  async goToItemDetail(article: Article) {
     const modal = await this.modalController.create({
       component: ModalPage,
       componentProps: {
-        custom_id: id
+        custom_id: article
       }
     });
     modal.present();
-    //console.log("hehehe");
-}
+  }
+
+  perist(){
+    this.page1Service.persistArticles(this.articlesSaved).then(
+      ok => {
+        console.log("Les articles ont bien été stockés");
+      }
+    );
+  }
+  save(id: number){
+    for (let article of this.articles){
+      if(article.id == id){
+        article.persiste = !article.persiste;
+        console.log(article);
+        let length = this.articlesSaved.push(article);
+        this.perist();
+      }
+    }
+  }
 }
 

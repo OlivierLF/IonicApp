@@ -18,9 +18,5 @@ export class MainPage implements OnInit {
     console.log("INIT MAIN PAGE");
     this.identifiant = localStorage.getItem("identifiant");
   }
-
-  goToPage1(){
-    this.router.navigateByUrl("page1");
-  }
 }
 

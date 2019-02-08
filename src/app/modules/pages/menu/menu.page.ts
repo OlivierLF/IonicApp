@@ -16,14 +16,17 @@ private selectedPath: String;
 
   ngOnInit() {
     this.pages =[
-        {
-            title: 'First page',
-            url: '/page1'
-        },
-        {
-            title: 'Main page',
-            url: '/main'
-        }
+      {
+        title: 'Accueil',
+        url: '/main'
+      },{
+        title: 'Liste des items',
+        url: '/liste-items'
+      },{
+        title: 'Mes items',
+        url: '/mes-items'
+      }
+        
     ];
     this.selectedPath='';
   }

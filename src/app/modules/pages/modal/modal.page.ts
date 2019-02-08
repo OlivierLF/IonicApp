@@ -2,6 +2,13 @@ import {Component, OnInit} from "@angular/core";
 import { Router, RouterEvent } from "@angular/router";
 import { ModalController, NavParams } from "@ionic/angular";
 
+interface Article {
+  userId: number;
+  id: number;
+  title: String;
+  body: String;
+}
+
 @Component({
   selector: 'modal',
   templateUrl: './modal.page.html',
@@ -11,7 +18,8 @@ import { ModalController, NavParams } from "@ionic/angular";
 })
 
 export class ModalPage implements OnInit {
-  passedId = null;
+  //passedId = null;
+  passedId: Article;
 
   constructor(private modalController: ModalController,
               private navParams: NavParams) {
@@ -19,6 +27,7 @@ export class ModalPage implements OnInit {
 
   ngOnInit(){
     this.passedId = this.navParams.get('custom_id');
+    
   }
 
   closeModal(){

@@ -3,17 +3,10 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Liste des items</ion-title>
+    <ion-title>Mes items</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content padding>
-  <h1 *ngIf="toShow">
-    Je dois m'afficher
-  </h1>
-
-  <h1 *ngIf="!toShow">
-    Je ne dois pas m'afficher
-  </h1>
 
   <ion-card *ngFor="let article of articles| slice:0:10">
     <ion-card-header color="primary">

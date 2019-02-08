@@ -14,6 +14,7 @@ import localeFr from '@angular/common/locales/fr';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { ModalPageModule } from "./modules/pages/modal/modal.module";
+import { MenuPageModule } from "./modules/pages/menu/menu.module";
 
 registerLocaleData(localeFr);
 moment.locale('fr');
@@ -36,7 +37,8 @@ moment.locale('fr');
       driverOrder: ['indexeddb', 'sqlite', 'websql']
     }),
     ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.PRODUCTION}),
-    ModalPageModule
+    ModalPageModule,
+    MenuPageModule
   ],
   providers: [
     {provide: APP_BASE_HREF, useValue: '/'},

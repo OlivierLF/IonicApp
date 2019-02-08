@@ -3,11 +3,12 @@ import { CommonModule } from "@angular/common";
 import { IonicModule } from "@ionic/angular";
 import { RouterModule, Routes } from "@angular/router";
 import { ModalPage } from "./modal.page";
+import { MenuPageModule } from "../menu/menu.module";
 
 @NgModule({
   imports: [
     CommonModule,
-    IonicModule, 
+    IonicModule,
     RouterModule.forChild([
       {
         path: '',

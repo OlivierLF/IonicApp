@@ -11,12 +11,16 @@ const routes: Routes = [
         component: MenuPage, 
         children: [
             {
-                path: 'page1',
+                path: 'liste-items',
                 loadChildren: '../page1/page1.page.module#Page1PageModule'
               },
               {
                 path: 'main',
                 loadChildren: '../../main/main.page.module#MainPageModule'
+              },
+              {
+                path: 'mes-items',
+                loadChildren: '../MyItems/myItems.page.module#MyItemsPageModule'
               }
         ]
     },
