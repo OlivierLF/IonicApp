@@ -37,9 +37,7 @@ export class Page1Page implements OnInit {
 
   ngOnInit() {
     this.articlesSaved = [];
-    this.storage.get("user").then(val => {
-      this.user = val;
-    });
+    this.user = localStorage.getItem("identifiant");
     this.page1Service.getArticles().subscribe(
       (data: Array<any>) => {
         this.toShow = false;

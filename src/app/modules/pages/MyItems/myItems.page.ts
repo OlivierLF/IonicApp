@@ -37,9 +37,7 @@ export class MyItemsPage implements OnInit {
     this.storage.get("articles").then(val => {
       this.articles = val;
     });
-    this.storage.get("user").then(val => {
-      this.user = val;
-    });
+    this.user = localStorage.getItem("identifiant");
   }
 
   async goToItemDetail(article: Article) {
