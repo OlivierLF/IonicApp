@@ -1,4 +1,5 @@
 import {Component, OnInit} from "@angular/core";
+import { Router, RouterEvent } from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -7,13 +8,17 @@ import {Component, OnInit} from "@angular/core";
   providers: [],
 })
 export class AppComponent implements OnInit {
+  public IdentifiantPersiste: boolean;
 
-  constructor() {
-
+  constructor(public router: Router) {
+    if('identifiant' in localStorage){
+      this.router.navigateByUrl('/liste-items');
+    } else {
+      this.router.navigateByUrl('/login');
+    }
   }
 
   ngOnInit() {
-    localStorage.setItem("identifiant", "Mickael");
-
+    
   }
 }

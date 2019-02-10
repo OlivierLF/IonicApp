@@ -5,6 +5,10 @@ const defaultsRoutes: Routes = [
   {
     path: '',
     loadChildren: '../modules/pages/menu/menu.module#MenuPageModule'
+  },
+  {
+    path: 'login',
+    loadChildren: "../modules/pages/login/login.page.module#LoginPageModule"
   }
 ];
 

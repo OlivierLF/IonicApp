@@ -13,11 +13,4 @@ describe('Page: Main Page', () => {
     }
   );
 
-  it('should goToPage1', () => {
-    page.goToPage1();
-    expect(router.navigateByUrl).toHaveBeenCalledTimes(1);
-    expect(router.navigateByUrl).toHaveBeenCalledWith("page1");
-
-  });
-
 });

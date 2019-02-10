@@ -16,10 +16,6 @@ export class MenuPage implements OnInit {
   ngOnInit() {
     this.pages = [
       {
-        title: "Login/Logout",
-        url: "/login"
-      },
-      {
         title: "Accueil",
         url: "/main"
       },
