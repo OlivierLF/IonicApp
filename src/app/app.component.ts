@@ -8,8 +8,6 @@ import { Router, RouterEvent } from "@angular/router";
   providers: [],
 })
 export class AppComponent implements OnInit {
-  public IdentifiantPersiste: boolean;
-
   constructor(public router: Router) {
     if('identifiant' in localStorage){
       this.router.navigateByUrl('/liste-items');
@@ -19,6 +17,5 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    
   }
 }
