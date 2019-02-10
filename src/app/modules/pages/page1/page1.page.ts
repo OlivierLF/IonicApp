@@ -35,8 +35,19 @@ export class Page1Page implements OnInit {
     this.page1Service.getArticles().subscribe(
       (data: Array<any>) => {
         this.articles = data;
+        this.page1Service.getArticlesPersist().then((val)=> {
+          this.articlesSaved=val;
+          for (let article of this.articlesSaved){
+            for (let arti of this.articles){
+              if(arti.id == article.id){
+                arti.persiste=true;                
+              }
+            }
+          }
+        });
       }
     );
+    
   }
 
   async goToItemDetail(article: Article) {
@@ -52,7 +63,7 @@ export class Page1Page implements OnInit {
   perist(){
     this.page1Service.persistArticles(this.articlesSaved).then(
       ok => {
-        console.log("Les articles ont bien été stockés");
+        //console.log("Les articles ont bien été stockés");
       }
     );
   }
@@ -60,9 +71,23 @@ export class Page1Page implements OnInit {
     for (let article of this.articles){
       if(article.id == id){
         article.persiste = !article.persiste;
-        console.log(article);
-        let length = this.articlesSaved.push(article);
+        this.articlesSaved.push(article);
         this.perist();
+      }
+    }
+  }
+  delete(id: number){
+    let i=0;
+    for (let article of this.articlesSaved){
+      if(article.id == id){
+        let supp= this.articlesSaved.splice(i,1);
+        this.perist();        
+      }
+      i++;
+    }
+    for (let article of this.articles){
+      if(article.id == id){
+        article.persiste = !article.persiste;
       }
     }
   }

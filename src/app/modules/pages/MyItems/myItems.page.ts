@@ -30,14 +30,9 @@ export class MyItemsPage implements OnInit {
   }
 
   ngOnInit() {
-    // this.storage.get('articles').then((val)) => {
-    //   this.articles = val;
-    // }
     this.storage.get("articles").then((val)=> {
       this.articles=val;
     });
-    
-    
   }
 
   async goToItemDetail(article: Article) {
@@ -49,7 +44,24 @@ export class MyItemsPage implements OnInit {
     });
     modal.present();
   }
+
   save(id: number){
+    for (let article of this.articles){
+      if(article.id == id){
+        article.persiste = !article.persiste;
+        this.articles.push(article);   
+      }
+    }
+  }
+  delete(id: number){
+    let i=0;
+    for (let article of this.articles){
+      if(article.id == id){
+        let supp= this.articles.splice(i,1);
+        this.storage.set("articles", this.articles);             
+      }
+      i++;
+    }
     for (let article of this.articles){
       if(article.id == id){
         article.persiste = !article.persiste;

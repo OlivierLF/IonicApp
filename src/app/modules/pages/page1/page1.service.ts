@@ -18,4 +18,8 @@ export class Page1Service {
     return this.storage.set("articles", articles);
   }
 
+  getArticlesPersist(){
+    return this.storage.get("articles");
+  }
+
 }
