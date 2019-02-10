@@ -68,5 +68,9 @@ export class MyItemsPage implements OnInit {
       }
     }
   }
+  deleteAll(){
+    this.articles=[];
+    this.storage.set("articles", this.articles); 
+  }
 }
 

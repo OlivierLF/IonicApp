@@ -8,11 +8,7 @@
 </ion-header>
 <ion-content padding>
   <h1 *ngIf="toShow">
-    Je dois m'afficher
-  </h1>
-
-  <h1 *ngIf="!toShow">
-    Je ne dois pas m'afficher
+    Le récupération des articles depuis le serveur a échouée
   </h1>
 
   <ion-card *ngFor="let article of articles| slice:0:10">

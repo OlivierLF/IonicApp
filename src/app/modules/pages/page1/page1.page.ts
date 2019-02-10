@@ -21,8 +21,8 @@ interface Article {
 })
 export class Page1Page implements OnInit {
 
-  public articles: Array<any>;
-  public articlesSaved: Array<Article>;
+  private articles: Array<any>;
+  private articlesSaved: Array<Article>;
 
   public toShow: boolean;
 
@@ -34,6 +34,7 @@ export class Page1Page implements OnInit {
     this.articlesSaved = [];
     this.page1Service.getArticles().subscribe(
       (data: Array<any>) => {
+        this.toShow=false;
         this.articles = data;
         this.page1Service.getArticlesPersist().then((val)=> {
           this.articlesSaved=val;
@@ -45,7 +46,14 @@ export class Page1Page implements OnInit {
             }
           }
         });
-      }
+      },
+      error => {
+        this.toShow=true;
+        this.page1Service.getArticlesPersist().then((val)=> {
+          this.articles=val;
+        });
+        
+      } 
     );
     
   }
