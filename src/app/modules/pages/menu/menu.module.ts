@@ -6,24 +6,32 @@ import { MenuPage } from "./menu.page";
 import { FormsModule } from "@angular/forms";
 
 const routes: Routes = [
-    { 
-        path: "", 
-        component: MenuPage, 
-        children: [
-            {
-                path: 'liste-items',
-                loadChildren: '../page1/page1.page.module#Page1PageModule'
-              },
-              {
-                path: 'main',
-                loadChildren: '../../main/main.page.module#MainPageModule'
-              },
-              {
-                path: 'mes-items',
-                loadChildren: '../MyItems/myItems.page.module#MyItemsPageModule'
-              }
-        ]
-    },
+  {
+    path: "",
+    component: MenuPage,
+    children: [
+      {
+        path: "",
+        loadChildren: "../login/login.page.module#LoginPageModule"
+      },
+      {
+        path: "login",
+        loadChildren: "../login/login.page.module#LoginPageModule"
+      },
+      {
+        path: "liste-items",
+        loadChildren: "../page1/page1.page.module#Page1PageModule"
+      },
+      {
+        path: "main",
+        loadChildren: "../../main/main.page.module#MainPageModule"
+      },
+      {
+        path: "mes-items",
+        loadChildren: "../MyItems/myItems.page.module#MyItemsPageModule"
+      }
+    ]
+  }
 ];
 
 @NgModule({

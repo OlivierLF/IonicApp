@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>S'identifier</ion-title>
+    <ion-title slot="end">Connecté comme {{user}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-row class="center-layout">
+    <ion-col text-center>
+      <ion-item>
+        <ion-icon color="dark" name="person"></ion-icon>
+        <ion-label color="dark" position="floating">Entrez ici votre pseudo...</ion-label>
+        <ion-input type="texte" #name></ion-input>
+      </ion-item>
+      <ion-button (click)="validateLogin(name.value)" expand="full" color="dark">
+        Valider
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-content>
